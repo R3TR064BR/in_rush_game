@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://1xx1fybmoxs1"]
+
+[ext_resource type="Script" path="res://void.gd" id="1_qukog"]
+[ext_resource type="Texture2D" uid="uid://b35orugtuduhk" path="res://Assets_aula1/Minecraft-Lava.jpg" id="2_fci8k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nv08a"]
+atlas = ExtResource("2_fci8k")
+region = Rect2(0, 0, 1500, 1500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5k1jt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nv08a")
+}],
+"loop": true,
+"name": &"FIRE",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovv86"]
+size = Vector2(2539.75, 62)
+
+[node name="void" type="Area2D"]
+script = ExtResource("1_qukog")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1204.45, 497.884)
+rotation = 3.13867
+scale = Vector2(1.69099, 0.0906583)
+sprite_frames = SubResource("SpriteFrames_5k1jt")
+animation = &"FIRE"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1207.13, 455)
+shape = SubResource("RectangleShape2D_ovv86")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

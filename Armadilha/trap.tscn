@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://dqg1tsghynh5v"]
+
+[ext_resource type="Script" path="res://Armadilha/Trap.gd" id="1_oksj7"]
+[ext_resource type="Texture2D" uid="uid://lhpg1q6eagnv" path="res://Assets_aula1/Armadilha/On (38x38).png" id="2_c5s6s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eny3y"]
+atlas = ExtResource("2_c5s6s")
+region = Rect2(0, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcmb2"]
+atlas = ExtResource("2_c5s6s")
+region = Rect2(38, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hysmm"]
+atlas = ExtResource("2_c5s6s")
+region = Rect2(76, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h41p6"]
+atlas = ExtResource("2_c5s6s")
+region = Rect2(114, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v7ei"]
+atlas = ExtResource("2_c5s6s")
+region = Rect2(152, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ibgp"]
+atlas = ExtResource("2_c5s6s")
+region = Rect2(190, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvqtm"]
+atlas = ExtResource("2_c5s6s")
+region = Rect2(228, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdvi3"]
+atlas = ExtResource("2_c5s6s")
+region = Rect2(266, 0, 38, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fn25i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eny3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcmb2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hysmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h41p6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v7ei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ibgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvqtm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdvi3")
+}],
+"loop": true,
+"name": &"Serra",
+"speed": 16.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xu3j3"]
+radius = 20.025
+
+[node name="Trap" type="Area2D"]
+script = ExtResource("1_oksj7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fn25i")
+animation = &"Serra"
+autoplay = "Serra"
+frame_progress = 0.0248548
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xu3j3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://lct01f4qwcyx"]
+
+[ext_resource type="Script" path="res://coletavel/telafinal.gd" id="1_60weh"]
+[ext_resource type="FontFile" uid="uid://dqrqukiyok4rr" path="res://Assets_aula1/TaylorGothic.otf" id="2_0f7tx"]
+[ext_resource type="FontFile" uid="uid://jbe6j6j5r33x" path="res://Assets_aula1/Terrain/NewAmsterdam-Regular.ttf" id="3_0p6ta"]
+[ext_resource type="Texture2D" uid="uid://d1pikljk51nmq" path="res://botoes/64px/Restart_64.png" id="4_88sis"]
+
+[node name="telafinal" type="CanvasLayer"]
+follow_viewport_enabled = true
+script = ExtResource("1_60weh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.147672, 0.147672, 0.147672, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 415.0
+offset_top = -89.0
+offset_right = -425.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.5
+offset_top = -71.5
+offset_right = 106.5
+offset_bottom = -2.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.758639, 0.593494, 1.92523e-07, 1)
+theme_override_fonts/font = ExtResource("2_0f7tx")
+theme_override_font_sizes/font_size = 70
+text = "You Win"
+vertical_alignment = 1
+
+[node name="bt_final" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -163.5
+offset_top = 5.5
+offset_right = 163.5
+offset_bottom = 66.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_0p6ta")
+theme_override_font_sizes/font_size = 38
+text = "Jogue novamente
+"
+icon = ExtResource("4_88sis")
+flat = true
+
+[connection signal="pressed" from="bt_final" to="." method="_on_bt_final_pressed"]

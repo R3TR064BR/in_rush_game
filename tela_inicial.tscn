@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3mdvymadgx1h"]
+
+[ext_resource type="Script" path="res://tela_inicial.gd" id="1_k7ec3"]
+[ext_resource type="FontFile" uid="uid://jr6coumnpgub" path="res://World of Water.otf" id="2_bepsh"]
+[ext_resource type="FontFile" uid="uid://jbe6j6j5r33x" path="res://Assets_aula1/Terrain/NewAmsterdam-Regular.ttf" id="3_2a11p"]
+[ext_resource type="Texture2D" uid="uid://dmcrovjclujy7" path="res://botoes/64px/Play_64.png" id="4_ltcyh"]
+[ext_resource type="Texture2D" uid="uid://b8353yi4wbcw" path="res://botoes/64px/Close_64.png" id="5_q5jd6"]
+
+[node name="Tela Inicial" type="CanvasLayer"]
+script = ExtResource("1_k7ec3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.298624, 0.345884, 1)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -96.0
+offset_right = 94.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.972549, 0.584314, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_bepsh")
+theme_override_font_sizes/font_size = 80
+text = "In rush"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -216.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="iniciar" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -9.5
+offset_right = 61.5
+offset_bottom = 51.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_2a11p")
+theme_override_font_sizes/font_size = 38
+text = "Iniciar
+"
+icon = ExtResource("4_ltcyh")
+flat = true
+
+[node name="Sair" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = 50.0
+offset_right = 73.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_2a11p")
+theme_override_font_sizes/font_size = 38
+text = "Sair
+"
+icon = ExtResource("5_q5jd6")
+flat = true
+
+[connection signal="pressed" from="iniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="pressed" from="Sair" to="." method="_on_sair_pressed"]

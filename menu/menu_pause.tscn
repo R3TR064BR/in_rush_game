@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://7ww1b5i2n07l"]
+
+[ext_resource type="Script" path="res://menu/menu_pause.gd" id="1_gjb1b"]
+[ext_resource type="FontFile" uid="uid://jbe6j6j5r33x" path="res://Assets_aula1/Terrain/NewAmsterdam-Regular.ttf" id="2_0k7oi"]
+[ext_resource type="Texture2D" uid="uid://dmcrovjclujy7" path="res://botoes/64px/Play_64.png" id="3_0vecn"]
+[ext_resource type="Texture2D" uid="uid://d1pikljk51nmq" path="res://botoes/64px/Restart_64.png" id="4_s122t"]
+[ext_resource type="Texture2D" uid="uid://b8353yi4wbcw" path="res://botoes/64px/Close_64.png" id="5_humk8"]
+
+[node name="Menu_pause" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_gjb1b")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.380392, 0.380392, 0.380392, 0.839216)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.5
+offset_top = -244.0
+offset_right = 59.5
+offset_bottom = 244.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="bt_return" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0k7oi")
+theme_override_font_sizes/font_size = 38
+text = "VOLTAR"
+icon = ExtResource("3_0vecn")
+flat = true
+
+[node name="bt_reset" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0k7oi")
+theme_override_font_sizes/font_size = 38
+text = "Resetar"
+icon = ExtResource("4_s122t")
+flat = true
+
+[node name="bt_quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.494118, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_0k7oi")
+theme_override_font_sizes/font_size = 38
+text = "Sair"
+icon = ExtResource("5_humk8")
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/bt_return" to="." method="_on_bt_return_pressed"]
+[connection signal="pressed" from="VBoxContainer/bt_reset" to="." method="_on_bt_reset_pressed"]
+[connection signal="pressed" from="VBoxContainer/bt_quit" to="." method="_on_bt_quit_pressed"]

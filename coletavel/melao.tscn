@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://csnhgko1x8k1l"]
+
+[ext_resource type="Script" path="res://Melao.gd" id="1_slgj0"]
+
+[node name="Melao" type="CanvasLayer"]
+script = ExtResource("1_slgj0")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Pontos: "

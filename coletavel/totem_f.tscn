@@ -1,0 +1,116 @@
+[gd_scene load_steps=17 format=3 uid="uid://b6tkqxpsiu3o2"]
+
+[ext_resource type="Script" path="res://coletavel/TotemF.gd" id="1_hml0x"]
+[ext_resource type="Texture2D" uid="uid://docfevvi3lpb0" path="res://Assets_aula1/Coletavel/Collected.png" id="2_mspge"]
+[ext_resource type="Texture2D" uid="uid://b6ybvlqenulba" path="res://Assets_aula1/totem - Copia.png" id="3_p11kw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbixr"]
+atlas = ExtResource("2_mspge")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtv8q"]
+atlas = ExtResource("2_mspge")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nh4ni"]
+atlas = ExtResource("2_mspge")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anyw2"]
+atlas = ExtResource("2_mspge")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngk7i"]
+atlas = ExtResource("2_mspge")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuxk7"]
+atlas = ExtResource("2_mspge")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8u08"]
+atlas = ExtResource("3_p11kw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0e1hp"]
+atlas = ExtResource("3_p11kw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pakes"]
+atlas = ExtResource("3_p11kw")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av26r"]
+atlas = ExtResource("3_p11kw")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0700"]
+atlas = ExtResource("3_p11kw")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a3kek"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbixr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtv8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nh4ni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anyw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngk7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kuxk7")
+}],
+"loop": false,
+"name": &"Tcollect",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8u08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0e1hp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pakes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_av26r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0700")
+}],
+"loop": true,
+"name": &"movimentoT",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tgdrv"]
+radius = 11.0
+height = 26.0
+
+[node name="TotemF" type="Area2D"]
+position = Vector2(2364, 198)
+script = ExtResource("1_hml0x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 5.96046e-06)
+scale = Vector2(0.78125, 0.78125)
+sprite_frames = SubResource("SpriteFrames_a3kek")
+animation = &"Tcollect"
+autoplay = "movimentoT"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_tgdrv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

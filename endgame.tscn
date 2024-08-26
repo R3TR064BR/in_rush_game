@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://ig47j6l2eoje"]
+
+[ext_resource type="Script" path="res://endgame.gd" id="1_exfrc"]
+[ext_resource type="FontFile" uid="uid://dqrqukiyok4rr" path="res://Assets_aula1/TaylorGothic.otf" id="2_n6vmi"]
+[ext_resource type="FontFile" uid="uid://jbe6j6j5r33x" path="res://Assets_aula1/Terrain/NewAmsterdam-Regular.ttf" id="3_moi1b"]
+[ext_resource type="Texture2D" uid="uid://d1pikljk51nmq" path="res://botoes/64px/Restart_64.png" id="4_8vfnl"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_exfrc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0728426, 0.0728426, 0.0728426, 1)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 39.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.705882, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_n6vmi")
+theme_override_font_sizes/font_size = 50
+text = "YOU DIED"
+
+[node name="bt_reset2" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.5
+offset_top = -10.0
+offset_right = 86.5
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_moi1b")
+theme_override_font_sizes/font_size = 38
+text = "Restart"
+icon = ExtResource("4_8vfnl")
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="bt_reset2" to="." method="_on_bt_reset_2_pressed"]

@@ -1,0 +1,106 @@
+[gd_scene load_steps=16 format=3 uid="uid://dbbch8t444c7k"]
+
+[ext_resource type="Script" path="res://coletavel/Reloginho.gd" id="1_qh7j7"]
+[ext_resource type="Texture2D" uid="uid://bl1i6he1jhj53" path="res://Assets_aula1/Terrain/clock.png" id="2_adbn7"]
+[ext_resource type="Texture2D" uid="uid://docfevvi3lpb0" path="res://Assets_aula1/Coletavel/Collected.png" id="3_5vf2o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wxos"]
+atlas = ExtResource("2_adbn7")
+region = Rect2(0, 0, 50, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1o4u"]
+atlas = ExtResource("2_adbn7")
+region = Rect2(50, 0, 50, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vur5t"]
+atlas = ExtResource("2_adbn7")
+region = Rect2(0, 51, 50, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ld4jh"]
+atlas = ExtResource("2_adbn7")
+region = Rect2(50, 51, 50, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhmsi"]
+atlas = ExtResource("3_5vf2o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txvfg"]
+atlas = ExtResource("3_5vf2o")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fuf0h"]
+atlas = ExtResource("3_5vf2o")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hid4"]
+atlas = ExtResource("3_5vf2o")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5son8"]
+atlas = ExtResource("3_5vf2o")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlwf2"]
+atlas = ExtResource("3_5vf2o")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ha0cn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wxos")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1o4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vur5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ld4jh")
+}],
+"loop": true,
+"name": &"Clock",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhmsi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txvfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fuf0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hid4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5son8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlwf2")
+}],
+"loop": false,
+"name": &"receclock",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n3gem"]
+radius = 13.0384
+
+[node name="Reloginho" type="Area2D"]
+position = Vector2(711, 358)
+script = ExtResource("1_qh7j7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.48, 0.479592)
+sprite_frames = SubResource("SpriteFrames_ha0cn")
+animation = &"receclock"
+autoplay = "Clock"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_n3gem")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
